@@ -1,0 +1,99 @@
+/*
+Theme Name: Scratch
+Author: Pootlepress
+Description: A simple and fast theme
+Version: 1.0
+*/
+
+@import "assets/styles/bootstrap";
+//@import "assets/styles/bootstrap/_theme";
+
+.block {
+  margin-right: auto;
+  margin-left: auto;
+  @include clearfix();
+  width: 960px;
+}
+
+
+#header
+{
+  margin-top: 0;
+}
+
+#navigation ul.nav
+{
+  .sub-menu.align-left
+  {
+    text-align: left;
+  }
+  .sub-menu.align-center
+  {
+    text-align: center;
+  }
+  .sub-menu.align-right
+  {
+    text-align: right;
+  }
+}
+
+#main
+{
+  clear: both;
+
+  article
+  {
+    margin-top: 40px;
+    border-top: 1px dashed #c0c0c0;
+    padding-top: 10px;
+
+    &:first-child
+    {
+      margin-top: 0;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .entry-meta
+    {
+      .cat-links
+      {
+        display: none;
+      }
+
+      span.entry-date
+      {
+
+      }
+
+      .byline
+      {
+        margin-left: 20px;
+        border-left: 1px solid #c0c0c0;
+        padding-left: 20px;
+        display: inline-block;
+      }
+
+      .comments-link.has-author-bar
+      {
+        margin-left: 20px;
+        border-left: 1px solid #c0c0c0;
+        padding-left: 20px;
+        display: inline-block;
+      }
+
+      .edit-link
+      {
+        margin-left: 20px;
+        border-left: 1px solid #c0c0c0;
+        padding-left: 20px;
+        display: inline-block;
+      }
+    }
+
+    .entry-content
+    {
+      margin-top: 15px;
+    }
+  }
+}

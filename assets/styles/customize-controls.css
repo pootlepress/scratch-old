@@ -1,0 +1,37 @@
+#customize-controls .customize-control-font,
+#customize-control-a_link_color
+{
+    padding-top: 10px;
+    border-top: 1px dotted #a0a0a0;
+    margin-top: 15px;
+}
+
+#customize-controls .customize-control-font:first-child
+{
+    padding: 0;
+    border-top: none;
+    margin-top: 0;
+}
+
+#customize-controls .customize-control-font .separator
+{
+    height: 10px;
+}
+
+#customize-controls .customize-control-font .wp-picker-container
+{
+    margin: 0;
+    vertical-align: middle;
+}
+
+#customize-controls .customize-control-slider .slider
+{
+    vertical-align: middle;
+}
+
+#customize-controls .customize-control-slider .current-value-text
+{
+    vertical-align: middle;
+    line-height: 15px;
+    margin-left: 10px;
+}

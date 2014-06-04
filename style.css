@@ -5002,12 +5002,15 @@ button.close {
 #header {
   margin-top: 0; }
 
-#navigation ul.nav .sub-menu.align-left {
-  text-align: left; }
-#navigation ul.nav .sub-menu.align-center {
-  text-align: center; }
-#navigation ul.nav .sub-menu.align-right {
-  text-align: right; }
+#navigation ul.nav {
+  display: inline-block;
+  float: none; }
+  #navigation ul.nav .sub-menu.align-left {
+    text-align: left; }
+  #navigation ul.nav .sub-menu.align-center {
+    text-align: center; }
+  #navigation ul.nav .sub-menu.align-right {
+    text-align: right; }
 
 #main {
   clear: both; }

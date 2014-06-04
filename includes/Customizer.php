@@ -166,7 +166,10 @@ class Customizer {
         $customizeManager->add_setting('fix_nav_bar_to_top', array(
             'default' => false,
         ));
-        $customizeManager->add_setting('nav_item_align', array(
+        $customizeManager->add_setting('nav_align', array(
+            'default' => 'left',
+        ));
+        $customizeManager->add_setting('nav_sub_item_align', array(
             'default' => 'left',
         ));
 
@@ -269,8 +272,19 @@ class Customizer {
             'type'     => 'checkbox'
         ) );
 
-        $customizeManager->add_control( 'nav_item_align', array(
-            'label'   => __('Align Nav Menu Items', 'scratch'),
+        $customizeManager->add_control( 'nav_align', array(
+            'label'   => __('Align Nav Bar', 'scratch'),
+            'section' => 'nav_section',
+            'type'    => 'select',
+            'choices' => array(
+                'left' => __('Left', 'scratch'),
+                'center' => __('Middle', 'scratch'),
+                'right' => __('Right', 'scratch'),
+            )
+        ));
+
+        $customizeManager->add_control( 'nav_sub_item_align', array(
+            'label'   => __('Align Nav Sub Menu Items', 'scratch'),
             'section' => 'nav_section',
             'type'    => 'select',
             'choices' => array(
@@ -394,6 +408,9 @@ class Customizer {
         }
 
 
+        //
+        // Nav
+        //
         $navBgColor = get_theme_mod('nav_bg_color');
 
         $navR = substr($navBgColor, 1, 2);
@@ -413,6 +430,11 @@ class Customizer {
         $navCss .= "\t" . 'background-color: ' . $navBgRGBA . "; background-image: none; \n";
         $navCss .= "}\n";
 
+        $navAlign = get_theme_mod('nav_align');
+        $navCss .= "#navigation .navbar-collapse {\n";
+        $navCss .= "\t" . 'text-align: ' . $navAlign . "; \n";
+        $navCss .= "}\n";
+
         $navFont = $this->get_font_css_value('nav', $this->fontOptions[6]);
         $navFontCss = '';
         $navFontCss .= "#navigation .navbar-nav > li > a {\n";
@@ -423,6 +445,9 @@ class Customizer {
         }
         $navFontCss .= "}\n";
 
+        //
+        // Heading
+        //
         $h1Css = $this->get_font_css('h1', $this->fontOptions[0]);
         $h2Css = $this->get_font_css('h2', $this->fontOptions[1]);
         $h3Css = $this->get_font_css('h3', $this->fontOptions[2]);

@@ -23,6 +23,9 @@ Version: 1.0
 
 #navigation ul.nav
 {
+  display: inline-block;
+  float: none;
+
   .sub-menu.align-left
   {
     text-align: left;

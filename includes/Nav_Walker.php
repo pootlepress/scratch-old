@@ -39,7 +39,7 @@ class Scratch_Nav_Walker extends Walker {
 
         $alignClass = '';
         if ($depth >= 0) {
-            $itemAlign = get_theme_mod('nav_item_align');
+            $itemAlign = get_theme_mod('nav_sub_item_align');
             if ($itemAlign == 'left') {
                 $alignClass = 'align-left';
             } else if ($itemAlign == 'center') {

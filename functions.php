@@ -5,6 +5,7 @@ require_once('includes/Nav_Walker.php');
 require_once('includes/Font_Control.php');
 require_once('includes/Slider_Control.php');
 require_once('includes/Header_Image_Control.php');
+require_once('includes/Background_Image_Control.php');
 require_once('includes/Font_Utility.php');
 
 $customizer = new Customizer();
@@ -111,7 +112,9 @@ $custom_header_support = array(
 //    'admin-preview-callback' => 'twentyeleven_admin_header_image',
 );
 
-add_theme_support( 'custom-header', $custom_header_support );
+//add_theme_support( 'custom-header', $custom_header_support );
+
+add_theme_support('custom-background');
 
 //add_action('admin_init', 'scratch_remove_theme_header_page');
 

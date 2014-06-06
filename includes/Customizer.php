@@ -219,32 +219,52 @@ class Customizer {
         //
         // Header Image
         //
-        $customizeManager->add_setting( new WP_Customize_Filter_Setting( $customizeManager, 'header_image', array(
-            'default'        => get_theme_support( 'custom-header', 'default-image' ),
-            'theme_supports' => 'custom-header',
+
+
+        $customizeManager->add_setting( 'background_image', array(
+            'default'        => get_theme_support( 'custom-background', 'default-image' ),
+            'theme_supports' => 'custom-background',
+        ) );
+
+		$customizeManager->add_setting( new WP_Customize_Background_Image_Setting( $customizeManager, 'background_image_thumb', array(
+            'theme_supports' => 'custom-background',
         ) ) );
-        $customizeManager->add_setting( new WP_Customize_Header_Image_Setting( $customizeManager, 'header_image_data', array(
-            // 'default'        => get_theme_support( 'custom-header', 'default-image' ),
-            'theme_supports' => 'custom-header',
-        ) ) );
-        $customizeManager->add_control(new Scratch_Header_Image_Control($customizeManager, 'header_image', array(
-            'label'    => __( 'Header Image' ),
-            'settings' => array(
-                'default' => 'header_image',
-                'data'    => 'header_image_data',
-            ),
+
+		$customizeManager->add_control( new Scratch_Background_Image_Control( $customizeManager, 'background_image', array(
+            'label'    => __( 'Background Image' ),
             'section'  => 'global_section',
-            'context'  => 'custom-header',
-            'removed'  => 'remove-header',
-            'get_url'  => 'get_header_image',
-
-            'width'                  => 0,
-            'height'                 => 0,
-            'flex-width'             => true,
-            'flex-height'            => true,
-
+            'context'  => 'custom-background',
+            'get_url'  => 'get_background_image',
             'priority' => 40
-        )));
+        ) ) );
+
+
+//        $customizeManager->add_setting( new WP_Customize_Filter_Setting( $customizeManager, 'header_image', array(
+//            'default'        => get_theme_support( 'custom-header', 'default-image' ),
+//            'theme_supports' => 'custom-header',
+//        ) ) );
+//        $customizeManager->add_setting( new WP_Customize_Header_Image_Setting( $customizeManager, 'header_image_data', array(
+//            // 'default'        => get_theme_support( 'custom-header', 'default-image' ),
+//            'theme_supports' => 'custom-header',
+//        ) ) );
+//        $customizeManager->add_control(new Scratch_Header_Image_Control($customizeManager, 'header_image', array(
+//            'label'    => __( 'Header Image' ),
+//            'settings' => array(
+//                'default' => 'header_image',
+//                'data'    => 'header_image_data',
+//            ),
+//            'section'  => 'global_section',
+//            'context'  => 'custom-header',
+//            'removed'  => 'remove-header',
+//            'get_url'  => 'get_header_image',
+//
+//            'width'                  => 0,
+//            'height'                 => 0,
+//            'flex-width'             => true,
+//            'flex-height'            => true,
+//
+//            'priority' => 40
+//        )));
 
         //
         // Nav Bar
@@ -399,14 +419,18 @@ class Customizer {
             $pageCss .= "}\n";
         }
 
+        //
+        // Header Image
+        //
         $headerCss = '';
-        $headerImage = get_theme_mod('header_image');
-        if (!empty($headerImage)) {
-            $headerCss .= "#header-container {\n";
-            $headerCss .= "\t" . "background-image: url('" . $headerImage . "');\n";
-            $headerCss .= "}\n";
-        }
+//        $headerImage = get_theme_mod('header_image');
+//        if (!empty($headerImage)) {
+//            $headerCss .= "#header-container {\n";
+//            $headerCss .= "\t" . "background-image: url('" . $headerImage . "');\n";
+//            $headerCss .= "}\n";
+//        }
 
+        
 
         //
         // Nav

@@ -35,3 +35,10 @@
     line-height: 15px;
     margin-left: 10px;
 }
+
+#customize-controls #customize-theme-controls .reset-row
+{
+    text-align: center;
+    padding: 10px 0;
+    list-style-type: none;
+}

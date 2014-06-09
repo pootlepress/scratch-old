@@ -5002,15 +5002,34 @@ button.close {
 #header {
   margin-top: 0; }
 
-#navigation ul.nav {
-  display: inline-block;
-  float: none; }
-  #navigation ul.nav .sub-menu.align-left {
-    text-align: left; }
-  #navigation ul.nav .sub-menu.align-center {
-    text-align: center; }
-  #navigation ul.nav .sub-menu.align-right {
-    text-align: right; }
+#navigation {
+  border: none; }
+  #navigation table {
+    width: 100%; }
+    #navigation table .logo-title-cell {
+      padding-left: 20px;
+      vertical-align: middle; }
+      #navigation table .logo-title-cell .logo-title {
+        list-style-type: none;
+        margin-bottom: 5px;
+        padding-left: 0; }
+        #navigation table .logo-title-cell .logo-title a {
+          position: relative; }
+          #navigation table .logo-title-cell .logo-title a:hover, #navigation table .logo-title-cell .logo-title a:focus {
+            text-decoration: none; }
+          #navigation table .logo-title-cell .logo-title a .logo {
+            position: absolute; }
+    #navigation table .menu-cell {
+      vertical-align: middle; }
+      #navigation table .menu-cell .navbar-collapse ul.nav {
+        display: inline-block;
+        float: none; }
+        #navigation table .menu-cell .navbar-collapse ul.nav .sub-menu.align-left {
+          text-align: left; }
+        #navigation table .menu-cell .navbar-collapse ul.nav .sub-menu.align-center {
+          text-align: center; }
+        #navigation table .menu-cell .navbar-collapse ul.nav .sub-menu.align-right {
+          text-align: right; }
 
 #main {
   clear: both; }

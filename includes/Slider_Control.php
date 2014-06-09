@@ -20,6 +20,8 @@ if ( ! class_exists( 'Scratch_Slider_Control' ) && class_exists( 'WP_Customize_C
         }
 
         protected function render_content() {
+
+            $defaultValue = $this->settings['default']->default;
             ?>
             <label>
                 <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
@@ -27,7 +29,11 @@ if ( ! class_exists( 'Scratch_Slider_Control' ) && class_exists( 'WP_Customize_C
                        min="<?php esc_attr_e($this->min) ?>"
                        max="<?php esc_attr_e($this->max) ?>"
                        step="<?php esc_attr_e($this->step) ?>"
-                       value="<?php esc_attr_e( $this->value() ); ?>" <?php $this->link(); ?> />
+                       value="<?php esc_attr_e( $this->value() ); ?>"
+
+                       default="<?php esc_attr_e($defaultValue) ?>"
+
+                    <?php $this->link(); ?> />
                 <span class="current-value-text" unit="<?php esc_attr_e($this->unit) ?>" ><?php esc_html_e($this->value() . $this->unit) ?></span>
 <!--                <input class='reset-default-button' default-value="--><?php //esc_attr_e($this->setting->default) ?><!--" type="button" value="Default" />-->
             </label>

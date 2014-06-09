@@ -180,13 +180,20 @@ class Customizer {
 
         // sections
         $customizeManager->add_section('global_section', array(
-            'title' => __('Global Options', 'scratch')
+            'title' => __('Global Options', 'scratch'),
+            'priority' => 10
+        ));
+        $customizeManager->add_section('logo_title_section', array(
+            'title' => __('Logo / Site Title', 'scratch'),
+            'priority' => 20
         ));
         $customizeManager->add_section('nav_section', array(
-            'title' => __('Nav Bar', 'scratch')
+            'title' => __('Nav Bar', 'scratch'),
+            'priority' => 30
         ));
         $customizeManager->add_section('font_section', array(
-            'title' => __('Fonts', 'scratch')
+            'title' => __('Fonts', 'scratch'),
+            'priority' => 40
         ));
 
         // controls
@@ -219,8 +226,6 @@ class Customizer {
         //
         // Header Image
         //
-
-
         $customizeManager->add_setting( 'background_image', array(
             'default'        => get_theme_support( 'custom-background', 'default-image' ),
             'theme_supports' => 'custom-background',
@@ -238,33 +243,25 @@ class Customizer {
             'priority' => 40
         ) ) );
 
+        //
+        // Logo/Site Title
+        //
 
-//        $customizeManager->add_setting( new WP_Customize_Filter_Setting( $customizeManager, 'header_image', array(
-//            'default'        => get_theme_support( 'custom-header', 'default-image' ),
-//            'theme_supports' => 'custom-header',
-//        ) ) );
-//        $customizeManager->add_setting( new WP_Customize_Header_Image_Setting( $customizeManager, 'header_image_data', array(
-//            // 'default'        => get_theme_support( 'custom-header', 'default-image' ),
-//            'theme_supports' => 'custom-header',
-//        ) ) );
-//        $customizeManager->add_control(new Scratch_Header_Image_Control($customizeManager, 'header_image', array(
-//            'label'    => __( 'Header Image' ),
-//            'settings' => array(
-//                'default' => 'header_image',
-//                'data'    => 'header_image_data',
-//            ),
-//            'section'  => 'global_section',
-//            'context'  => 'custom-header',
-//            'removed'  => 'remove-header',
-//            'get_url'  => 'get_header_image',
-//
-//            'width'                  => 0,
-//            'height'                 => 0,
-//            'flex-width'             => true,
-//            'flex-height'            => true,
-//
-//            'priority' => 40
-//        )));
+        // move site title control from built in section to Logo / Site Title section
+        $titleControl = $customizeManager->get_control('blogname');
+        $titleControl->section = 'logo_title_section';
+        $titleControl->priority = 10;
+
+        $customizeManager->remove_section('title_tagline');
+
+        $customizeManager->add_setting('logo_image', array(
+            'default' => '',
+        ));
+        $customizeManager->add_control(new WP_Customize_Image_Control($customizeManager, 'logo_image', array(
+            'label' => __('Logo', 'scratch'),
+            'section' => 'logo_title_section',
+            'priority' => 20
+        )));
 
         //
         // Nav Bar
@@ -333,6 +330,8 @@ class Customizer {
             'settings' => 'a_link_color',
             'priority' => 100
         )));
+
+        $customizeManager->remove_section('background_image');
     }
 
     public function customizer_js() {
@@ -420,17 +419,15 @@ class Customizer {
         }
 
         //
-        // Header Image
+        // Logo / Title
         //
-        $headerCss = '';
-//        $headerImage = get_theme_mod('header_image');
-//        if (!empty($headerImage)) {
-//            $headerCss .= "#header-container {\n";
-//            $headerCss .= "\t" . "background-image: url('" . $headerImage . "');\n";
-//            $headerCss .= "}\n";
-//        }
+        $logoTitleCss = '';
+        $logoUrl = get_theme_mod('logo_image');
+        if (empty($logoUrl)) {
 
-        
+        }
+
+
 
         //
         // Nav
@@ -461,7 +458,7 @@ class Customizer {
 
         $navFont = $this->get_font_css_value('nav', $this->fontOptions[6]);
         $navFontCss = '';
-        $navFontCss .= "#navigation .navbar-nav > li > a {\n";
+        $navFontCss .= "#navigation .navbar-nav > li > a, #navigation .logo-title .title {\n";
         foreach ($navFont as $key => $value) {
             if (!empty($value)) {
                 $navFontCss .= "\t" . $key . ': ' . $value . ";\n";
@@ -487,7 +484,6 @@ class Customizer {
 
         $css .= $bodyCss;
         $css .= $pageCss;
-        $css .= $headerCss;
         $css .= $navCss;
         $css .= $navFontCss;
         $css .= $h1Css;

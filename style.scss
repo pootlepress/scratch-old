@@ -21,23 +21,72 @@ Version: 1.0
   margin-top: 0;
 }
 
-#navigation ul.nav
+#navigation
 {
-  display: inline-block;
-  float: none;
+  border: none;
 
-  .sub-menu.align-left
+  table
   {
-    text-align: left;
+    width: 100%;
+
+    .logo-title-cell
+    {
+      padding-left: 20px;
+      vertical-align: middle;
+
+      .logo-title
+      {
+        list-style-type: none;
+        margin-bottom: 5px;
+        padding-left: 0;
+
+        a
+        {
+          position: relative;
+
+          &:hover, &:focus
+          {
+            text-decoration: none;
+          }
+
+          .logo
+          {
+            position: absolute;
+          }
+        }
+      }
+    }
+
+    .menu-cell
+    {
+      vertical-align: middle;
+
+      .navbar-collapse
+      {
+
+        ul.nav {
+          display: inline-block;
+          float: none;
+
+          .sub-menu.align-left
+          {
+            text-align: left;
+          }
+          .sub-menu.align-center
+          {
+            text-align: center;
+          }
+          .sub-menu.align-right
+          {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+
   }
-  .sub-menu.align-center
-  {
-    text-align: center;
-  }
-  .sub-menu.align-right
-  {
-    text-align: right;
-  }
+
 }
 
 #main

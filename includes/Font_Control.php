@@ -288,6 +288,7 @@ if ( ! class_exists( 'Scratch_Font_Control' ) && class_exists( 'WP_Customize_Con
 
                 <input class='sc-font-size-number' type="number" min="<?php echo $min_range ?>"
                        max="<?php echo $max_range ?>" step="<?php echo $step ?>" value="<?php echo $current_amount ?>"
+                       default="<?php echo $default_amount ?>"
                        <?php $this->link('font_size') ?>
                     />
                 px

@@ -419,17 +419,6 @@ class Customizer {
         }
 
         //
-        // Logo / Title
-        //
-        $logoTitleCss = '';
-        $logoUrl = get_theme_mod('logo_image');
-        if (empty($logoUrl)) {
-
-        }
-
-
-
-        //
         // Nav
         //
         $navBgColor = get_theme_mod('nav_bg_color');

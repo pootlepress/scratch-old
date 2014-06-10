@@ -18,7 +18,7 @@ function scratch_main_css() {
 add_action('wp_enqueue_scripts', 'scratch_scripts');
 function scratch_scripts() {
     wp_enqueue_script('scratch-image-loaded', get_stylesheet_directory_uri() . '/assets/scripts/imagesloaded.pkgd.min.js', array('jquery'));
-    wp_enqueue_script('scratch-nav-script', get_stylesheet_directory_uri() . '/assets/scripts/nav.js', array('jquery'));
+    wp_enqueue_script('scratch-front-script', get_stylesheet_directory_uri() . '/assets/scripts/front.js', array('jquery'));
 }
 
 
